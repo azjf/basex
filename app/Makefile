@@ -4,7 +4,7 @@ _OBJS = basex.o
 OBJS = $(patsubst %,$(OUT_DIR)/%,$(_OBJS))
 
 $(OUT_DIR)/basex: $(OBJS)
-	$(CXX) $^ -o $@ $(CXXFLAGS)
+	$(CXX) $^ -o $@ $(CXXFLAGS) -lboost_program_options
 
 $(OUT_DIR)/%.o: %.cpp
 	$(CXX) -c $< -o $@ $(CXXFLAGS)
