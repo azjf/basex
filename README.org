@@ -1,0 +1,36 @@
+A C++ header-only any-base codec library that fits well with the STL interfaces, and a command line utility implemented by it.
+
+* Library
+#+begin_src cpp
+  // basex
+   template <typename InputIterator, typename OutputIterator>
+   OutputIterator bxencode(InputIterator beg, InputIterator end, OutputIterator result, const std::string &digits);
+   template <typename InputIterator, typename OutputIterator>
+   OutputIterator bxdecode(InputIterator beg, InputIterator end, OutputIterator result, const std::string &digits);
+
+  // base64
+   template <typename InputIterator, typename OutputIterator>
+   OutputIterator b64:encode(InputIterator beg, InputIterator end, OutputIterator result);
+   template <typename InputIterator, typename OutputIterator>
+   OutputIterator b64:decode(InputIterator beg, InputIterator end, OutputIterator result);
+
+  // base58
+   template <typename InputIterator, typename OutputIterator>
+   OutputIterator b58:encode(InputIterator beg, InputIterator end, OutputIterator result);
+   template <typename InputIterator, typename OutputIterator>
+   OutputIterator b58:decode(InputIterator beg, InputIterator end, OutputIterator result);
+#+end_src
+
+* Command Line Utility
+#+begin_example
+  Usage: basex [OPTION]... [FILE]
+  Basex encode or decode FILE, or standard input, to standard output.
+
+  With no FILE, or when FILE is -, read standard input.
+
+  Mandatory arguments to long options are mandatory for short options too:
+    -a [ --algorithm ] arg (=b64) algorithm: b64 (RFC 4648), b58 (Bitcoin), or
+                                  codec digits for the number base convertion
+    -d [ --decode ]               decode data
+    -h [ --help ]                 display this help and exit
+#+end_example
